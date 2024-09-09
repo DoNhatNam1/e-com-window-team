@@ -4,12 +4,14 @@
   "license": "MIT",
   "scripts": {
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "prepare": "nx g @nx-dotnet/core:restore"
   },
   "dependencies": {
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@nx-dotnet/core": "^2.4.4",
     "@nx/eslint": "19.6.5",
     "@nx/eslint-plugin": "19.6.5",
     "@nx/js": "19.6.5",
