@@ -1,8 +1,220 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+  .div {
+    display: flex;
+    align-items: start;
+    gap: 104px 132px;
+    justify-content: start;
+    flex-wrap: wrap;
+  }
+  .div-2 {
+    display: flex;
+    min-width: 240px;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 542px;
+    padding: 10px;
+  }
+  @* @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+    }
+  } *@
+  .img {
+    aspect-ratio: 1.55;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+  }
+  @* @media (max-width: 991px) {
+    .img {
+      max-width: 100%;
+    }
+  } *@
+  .div-3 {
+    display: flex;
+    min-width: 240px;
+    align-items: center;
+    gap: 10px;
+    justify-content: start;
+    flex-grow: 1;
+    width: 311px;
+    padding: 10px;
+  }
+  .img-2 {
+    aspect-ratio: 0.72;
+    object-fit: contain;
+    object-position: center;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .div-4 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: start;
+    flex-grow: 1;
+    width: 58px;
+    padding: 10px;
+  }
+  .img-3 {
+    aspect-ratio: 0.82;
+    object-fit: contain;
+    object-position: center;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  .div-5 {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    width: 110px;
+    padding: 10px;
+  }
+  .img-4 {
+aspect-ratio: 4.26;
+    object-fit: contain;
+    object-position: center;
+    width: 102px;
+  }
+  .div-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 136px;
+    padding: 10px;
+  }
+  .img-5 {
+    aspect-ratio: 5.32;
+    object-fit: contain;
+    object-position: center;
+    width: 128px;
+  }
+  .div-7 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: start;
+    flex-grow: 1;
+    width: 48px;
+    padding: 10px;
+  }
+  .img-6 {
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+    width: 40px;
+    align-self: stretch;
+    margin: auto 0;
+  }
+</style>
+<div class="container my-5">
+        <div class="row align-items-center" style="height: 750px;">
+            <div class="col-md-6">
+                <h1 class="section-title"><strong>TỰ DO</strong></h1>
+                <h1 class="border text-white bg-black" style="width:175px;"><strong>THIẾT KẾ</strong></h1>
+                <h1 class="section-title"><strong>PHONG NỀN ĐIỆN THOẠI</strong></h1>
+                <p class="lead"><strong>Lưu lại khoảnh khắc đáng nhớ. WeldingStore sẽ giúp cho những kí ức đó không trôi theo thời gian</strong></p>
+                <ul class="custom-checkbox list-unstyled">
+                    <li><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-check text-success"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg><strong>Chất lượng cao, ốp lưng bền </strong></li>
+                    <li><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-check text-success"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg><strong> 5 năm kinh nghiệm in ấn</strong></li>
+                    <li><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-check text-success"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg><strong> Hỗ trợ nhiều ốp điện thoại</strong></li>
+                </ul>
+            </div>
+            <div class="col-md-6 text-center">
+            <img
+                loading="lazy" 
+                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/c5b70b13d1e5f5b78f35904205453d2db530c777c715c0d9bf36eb0600adc77a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf"
+                class="img-2"
+                />
+            </div>
+            <div class="div-4">
+                        </div>
+        </div>
 </div>
+
+    <!-- Section 2: Customer Testimonials -->
+    <div class="container testimonials" style="height:500px">
+        <h2 class="text-center "><strong>Khách hàng của chúng tôi nói gì ?</strong></h2>
+        <div class="row text-center">
+            <div class="col-md-4 testimonial">
+            <div class="text-start"> 
+                <img
+                    
+                    loading="lazy" 
+                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/260f703c3aefd876e223061e82fd5ebfd4975bc9167d41240bd1f2380c91d229?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf"                class="img-2"
+                    />
+                
+                <div class="div-6">
+                </div>
+            </div>              
+            <p class="text-start"><strong>"Wow, sản phẩm này rất tuyệt! Hình ảnh in lên ốp lưng rất rõ nét và màu sắc chuẩn xác. Cảm ơn đội ngũ thiết kế, mình rất hài lòng!"</strong></p>
+            <div class="text-start d-flex"><strong>
+                <img
+                loading="lazy" 
+                srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf"
+                    class="img-6"
+                    />
+                Thành Tâm</strong></div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4 testimonial">
+                <div class="text-start"> <img
+                loading="lazy" 
+                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/22150bb083c3a350c0441c8a7e9ba40f59522e075e3b16ee89bb0abd906bdead?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf"
+                class="img-2"
+                />
+                <div class="div-7">
+                </div>
+                </div>
+                <p class="text-start"><strong>"Giao hàng nhanh và chất lượng sản phẩm thì rất hài lòng. Cảm ơn các bạn đã cho ra đời một sản phẩm độc đáo như thế này!"</strong></p>
+                <div class="text-start d-flex"><strong>
+                <img
+                loading="lazy" 
+                srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/7b901d395861fa12fe49089cf7ca83e6ec4791b45f5306194446cd43c7ed3911?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf"
+                    class="img-6"
+                    />
+                Bùi Nguyệt</strong></div>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    <div class="container">
+    <div class="row text-center justify-content-center">
+      
+      <div class="col-md-5 product-section text-center">
+        <h1>HÃY TẢI TẤM HÌNH ĐẦU TIÊN VÀ SẮM CHO BẢN THÂN</h1>
+        <div class="border text-white bg-black "><h1>CHIẾC ỐP LƯNG XỊN SÒ</h1></div>
+        <h1>NGAY BÂY GIỜ</h1>
+        @* <div class="d-flex justify-content-center">
+            <img src="design-example.png" alt="Product Example" class="img-fluid">
+        </div> *@
+        <div class="mt-4">
+            <div class="div">
+                <div class="text-center">
+                    <img
+                    width="526.4"
+                    loading="lazy"
+                    srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/6c7b0065c4928958d83d0fe293e5cced4b573e4266169a618afbd94edd70580d?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf"
+                    class="img"
+                    />
+                </div>
+                <div class="div-3 justify-content-center">
+                    <div>
+                      <button href="#" class=" text-dark me-3 border-0 btn btn-success text-white" style="background: violet;" id="idtab">TẠO Mẫu Ngay Bây Giờ <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    </div>
+<script src="C:\ĐỒ ÁN THƯƠNG MẠI ĐIỆN TỬ\e-com-window-team\home-mvc\wwwroot\lib\bootstrap\js\Test\test.js" defer asp-append-version="true"></script>
