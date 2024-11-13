@@ -5,68 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ECommerceWeb.ClientMvc</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/ECommerceWeb.ClientMvc.styles.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/ECommerceWeb.ClientMvc.styles.css" asp-append-version="true" />
      <link href="/dist/css/tabler-payments.min.css?1684106062"
           rel="stylesheet" />
-    <link href="~/dist/webfont/tabler-icons.min.css" rel="stylesheet" />
+    <link href="~/dist/webfont/tabler-icons.min.css" rel="stylesheet" /> *@
 </head>
 <body>
     <header>
-        <nav class=" navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid bg-white border-bottom shadow-sm">
-                <div class="row d-flex align-items-center py-2">
-                    <div class="col-md-9">
-                    <div class="div-5 text-center">
-                    <img
-                        width="30px"
-                        loading="lazy"      
-                            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a?placeholderIfAbsent=true&apiKey=e454d901b26c4ee0bac5b3f0f055fadf"
-                        class="img-3"
-                        id="logo"
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <div class="row d-flex align-items-center w-100 py-2">
+                <!-- Logo -->
+                <div class="col-md-9 d-flex align-items-center">
+                    <div class=" text-center" style="margin-left: 20px;">
+                        <img
+                            width="35px"
+                            loading="lazy"      
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0d29df4306a8c3764ab250bc80cdc3d15bb353e67e7e4286ca3b1211484a782a"
+                            class="img-3"
+                            id="logo"
                         />
                     </div>
-                    </div>
-                    
-                    
-                    <div class="col-md-3 justify-content-end align-items-center text-end">
-                        <button id="logout" href="#" class="text-dark me-3 border-0 bg-white">Đăng xuất</button>
-                        <button href="http://localhost:3000" class=" text-dark me-3 border-0 btn btn-success text-white" style="background: violet;" id="idtab">TẠO MẪU <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
-                    </div>
                 </div>
+                
+                <!-- Nút Tạo Mẫu / Đăng xuất và Dashboard -->
+               <div class="col-md-3 text-end">
+                    @if (ViewData["HasActiveUser"] as bool? == true)
+                    {
+                        <!-- Hiển thị nút Đăng xuất khi HasActiveUser là true -->
+                        <button id="logoutButton" class="btn btn-primary me-2" onclick="logout()">Đăng xuất</button>
+
+                        <!-- Đường dẫn tới Dashboard với id của người dùng đang active -->
+                        <a href="http://localhost:3000/admin/home/@ViewData["ActiveUserId"]" class="btn btn-secondary">Dashboard</a>
+                    }
+                    else
+                    {
+                        <!-- Hiển thị nút Tạo Mẫu nếu không có người dùng IsActive -->
+                        <button class="text-dark me-3 border-0 btn btn-success text-white" style="background: violet;" id="idtab">
+                            Tạo Mẫu
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M5 12l14 0" />
+                                <path d="M15 16l4 -4" />
+                                <path d="M15 8l4 4" />
+                            </svg>
+                        </button>
+                    }
+                </div>
+
+
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container d-flex">
-            <div class="col-md-6">
-                &copy; 2024 - ECommerceWeb.ClientMvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-            <div class="col-md-6">
-                <strong>Terms</strong>
-            </div>
+   <footer class="border-top footer text-muted">
+    <div class="container d-flex justify-content-between py-3">
+        <div class="col-md-6">
+            <p class="mb-0">&copy; 2024 CopyRight<br>All rights reserved</p>
         </div>
-        
-    </footer>
+        <div class="col-md-6 text-center d-flex">
+            <p class="text-decoration-none me-3 col-md-2">Terms</p>
+            <p class="text-decoration-none me-3 col-md-2">Private Policy</p>
+            <p class="text-decoration-none col-md-2">Cookies Policy</p>
+        </div>
+    </div>
+</footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            var Logout = false;
-            if(Logout){
-                $('#logout').show();
-            }
-            else{
-                $('#logout').hide();
-            }
-        })
+   <script>
+        function logout() {
+            fetch('@Url.Action("Logout", "Home")', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Tải lại trang để cập nhật giao diện
+                    location.reload();
+                }
+            })
+            .catch(error => console.error('Lỗi:', error));
+        }
+
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

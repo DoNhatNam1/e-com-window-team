@@ -1,31 +1,47 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using EComWindowTeam.HomeMvc.Data;
 using EComWindowTeam.HomeMvc.Models;
-
-namespace EComWindowTeam.HomeMvc.Controllers;
+using System.Linq;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ApplicationDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ApplicationDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
     {
-        return View();
+        // Lấy toàn bộ danh sách người dùng
+         var users = _context.TbUsers.ToList();
+
+        // Kiểm tra nếu có bất kỳ người dùng nào có IsActive = true
+        var activeUser = users.FirstOrDefault(u => u.IsActive);
+        bool hasActiveUser = activeUser != null;
+        
+        // Truyền trạng thái hasActiveUser và id người dùng vào ViewData
+        ViewData["HasActiveUser"] = hasActiveUser;
+        ViewData["ActiveUserId"] = activeUser?.id;
+
+        return View(users); // Truyền danh sách người dùng qua ModelTruyền danh sách người dùng qua Model
     }
 
-    public IActionResult Privacy()
+    [HttpPost]
+    public IActionResult Logout()
     {
-        return View();
-    }
+        // Đặt IsActive của tất cả người dùng thành false
+        var users = _context.TbUsers.ToList();
+        foreach (var user in users)
+        {
+            user.IsActive = false;
+        }
+        
+        // Lưu thay đổi vào cơ sở dữ liệu
+        _context.SaveChanges();
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        // Trả về JSON để AJAX biết đã hoàn tất
+        return Json(new { success = true });
     }
 }

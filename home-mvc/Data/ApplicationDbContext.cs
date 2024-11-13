@@ -1,29 +1,50 @@
-using EComWindowTeam.ClientMvc.Models;
 using Microsoft.EntityFrameworkCore;
+using EComWindowTeam.HomeMvc.Models;
 
-public class ApplicationDbContext : DbContext
+namespace EComWindowTeam.HomeMvc.Data
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public class ApplicationDbContext : DbContext
     {
-    }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options) { }
 
-    public DbSet<Product> Products { get; set; } // Tên DbSet giữ nguyên như 'Products'
+        public DbSet<TbUser> TbUsers { get; set; }
+        public DbSet<TbOrder> TbOrders { get; set; }
+        public DbSet<TbConfiguration> TbConfigurations { get; set; }
+        public DbSet<TbShippingAddress> TbShippingAddresses { get; set; }
+        public DbSet<TbTemporaryAddress> TbTemporaryAddresses { get; set; }
+        // public DbSet<GetDbConnections> GetDbConnection { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Product>()
-            .ToTable("Product") // Đặt tên bảng là 'Product'
-            .Property(p => p.Id)
-            .HasColumnName("id"); // Đặt tên cột cho thuộc tính Id
-        modelBuilder.Entity<Product>()
-            .Property(p => p.CategoryId)
-            .HasColumnName("categoryid"); // Đặt tên cột cho thuộc tính CategoryId
-        modelBuilder.Entity<Product>()
-            .Property(p => p.Name)
-            .HasColumnName("name"); // Đặt tên cột cho thuộc tính Name
-        modelBuilder.Entity<Product>()
-            .Property(p => p.Price)
-            .HasColumnName("price"); // Đặt tên cột cho thuộc tính Price
+        
+         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TbUser>().ToTable("TbUser"); 
+
+            base.OnModelCreating(modelBuilder);
+            // Configure relationships
+            modelBuilder.Entity<TbOrder>()
+                .HasOne(o => o.Configuration)
+                .WithMany(c => c.Orders)
+                .HasForeignKey(o => o.ConfigurationId);
+
+            modelBuilder.Entity<TbOrder>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.orders)
+                .HasForeignKey(o => o.UserId);
+
+            modelBuilder.Entity<TbOrder>()
+                .HasOne(o => o.ShippingAddress)
+                .WithMany(a => a.Orders)
+                .HasForeignKey(o => o.ShippingAddressId)
+                .IsRequired(false);
+
+            modelBuilder.Entity<TbTemporaryAddress>()
+                .HasOne(a => a.Order)
+                .WithOne(o => o.TemporaryAddress)
+                .HasForeignKey<TbTemporaryAddress>(a => a.OrderId);
+
+            base.OnModelCreating(modelBuilder);
+        }
+    
     }
 }

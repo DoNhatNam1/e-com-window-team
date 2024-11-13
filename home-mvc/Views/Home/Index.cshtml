@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<EComWindowTeam.HomeMvc.Models.TbUser>
+@{
     ViewData["Title"] = "Home Page";
 }
 <style>
@@ -112,6 +113,34 @@ aspect-ratio: 4.26;
     margin: auto 0;
   }
 </style>
+@* <h2>Danh sách người dùng đang hoạt động</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>IsActive</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.id</td>
+                <td>@user.email</td>
+                <td class="is-active">@user.IsActive</td>
+                <td>@user.createdAt.ToString("yyyy-MM-dd")</td>
+                <td>@user.updatedAt.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table> *@
+<div class="text-center my-4">
+    
+</div>
 <div class="container my-5">
         <div class="row align-items-center" style="height: 750px;">
             <div class="col-md-6">
@@ -206,9 +235,10 @@ aspect-ratio: 4.26;
                     />
                 </div>
                 <div class="div-3 justify-content-center">
-                    <div>
-                      <button href="#" class=" text-dark me-3 border-0 btn btn-success text-white" style="background: violet;" id="idtab">TẠO Mẫu Ngay Bây Giờ <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
-                    </div>
+                    @if (ViewData["HasActiveUser"] is false)
+                    {
+                        <button href="#" class=" text-dark me-3 border-0 btn btn-success text-white" style="background: violet;" id="idtab">Tạo Mẫu Ngay Bây Giờ <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg></button>
+                    }
                 </div>
             </div>
         </div>
@@ -217,4 +247,3 @@ aspect-ratio: 4.26;
       
     </div>
     </div>
-<script src="C:\ĐỒ ÁN THƯƠNG MẠI ĐIỆN TỬ\e-com-window-team\home-mvc\wwwroot\lib\bootstrap\js\Test\test.js" defer asp-append-version="true"></script>

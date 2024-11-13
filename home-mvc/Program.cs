@@ -1,34 +1,40 @@
 using Microsoft.EntityFrameworkCore;
+using EComWindowTeam.HomeMvc.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Cấu hình DbContext với chuỗi kết nối từ appsettings.json
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+var connectionString = builder.Configuration.GetConnectionString("PostgresConnection");
 
-// Thêm các dịch vụ khác vào DI container
+// Cấu hình DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
+
+// Cấu hình Session
+builder.Services.AddDistributedMemoryCache(); // Lưu trữ Session trong bộ nhớ
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian tồn tại của Session
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// Thêm dịch vụ Controllers
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Cấu hình pipeline HTTP request
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
-
+// Cấu hình Middleware
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
+
+// Sử dụng Session trước Authorization
+app.UseSession();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-    
 
 app.Run();
-
